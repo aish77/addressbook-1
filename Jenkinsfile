@@ -18,7 +18,6 @@ pipeline {
         stage('testing for multiple environments') {
           steps {
             echo 'testing for dev and test'
-            error 'this is error'
           }
         }
 
@@ -28,6 +27,7 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying the app'
+        cleanWs(cleanWhenFailure: true)
       }
     }
 
