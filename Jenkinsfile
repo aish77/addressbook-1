@@ -18,6 +18,7 @@ pipeline {
         stage('testing for multiple environments') {
           steps {
             echo 'testing for dev and test'
+            error 'this is error'
           }
         }
 
