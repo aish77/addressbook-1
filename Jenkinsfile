@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('Test') {
-      steps {
-        echo 'testing the app'
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'testing the app'
+          }
+        }
+
+        stage('testing for multiple environments') {
+          steps {
+            echo 'testing for dev and test'
+          }
+        }
+
       }
     }
 
